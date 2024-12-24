@@ -27,6 +27,11 @@
             bindings = <&kp LA(TAB)>;
             key-positions = <0 1>;
         };
+
+        cmb_cmd_enter {
+            bindings = <&kp LG(ENTER)>;
+            key-positions = <19 20>;
+        };
     };
 
     keymap {
