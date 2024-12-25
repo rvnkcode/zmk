@@ -14,23 +14,36 @@
 
         cmb_grave {
             bindings = <&kp LA(GRAVE)>;
-            key-positions = <16 15>;
+            key-positions = <13 17>;
             layers = <0>;
         };
 
         cmb_alt-f4 {
             bindings = <&kp LA(F4)>;
             key-positions = <4 3>;
+            layers = <0>;
+        };
+    };
+
+    behaviors {
+        hml: home_row_mods_left {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOME_ROW_MODS_LEFT";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            hold-trigger-key-positions = <6 7 8 9 10 11 18 19 20 21 22 23 30 31 32 33 34 35 40 41 39>;
         };
 
-        cmb_alt_tab {
-            bindings = <&kp LA(TAB)>;
-            key-positions = <0 1>;
-        };
+        hmr: home_row_mods_right {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOME_ROW_MODS_RIGHT";
+            bindings = <&kp>, <&kp>;
 
-        cmb_cmd_enter {
-            bindings = <&kp LG(ENTER)>;
-            key-positions = <19 20>;
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            hold-trigger-key-positions = <0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 36 37 38>;
         };
     };
 
@@ -45,11 +58,13 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&kp TAB     &kp Q  &kp W  &kp E     &kp R  &kp T        &kp Y      &kp U  &kp I      &kp O    &kp P     &kp BSPC
-&kp LCTRL   &kp A  &kp S  &kp D     &kp F  &kp G        &kp H      &kp J  &kp K      &kp L    &kp SEMI  &kp SQT
-&kp LSHIFT  &kp Z  &kp X  &kp C     &kp V  &kp B        &kp N      &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp ESC
-                          &kp LGUI  &mo 1  &kp ENTER    &kp SPACE  &mo 2  &kp LALT
+&kp TAB     &kp Q            &kp W        &kp E         &kp R          &kp T        &kp Y      &kp U         &kp I         &kp O        &kp P                &kp BSPC
+&kp LCTRL   &hml LEFT_GUI A  &hml LALT S  &hml LCTRL D  &hml LSHIFT F  &kp G        &kp H      &hmr RSHFT J  &hmr LCTRL K  &hmr LALT L  &hmr LGUI SEMICOLON  &kp SQT
+&kp LSHIFT  &kp Z            &kp X        &kp C         &kp V          &kp B        &kp N      &kp M         &kp COMMA     &kp DOT      &kp FSLH             &kp ESC
+                                          &kp LGUI      &mo 1          &kp ENTER    &kp SPACE  &mo 2         &kp RALT
             >;
+
+            label = "Base";
         };
 
         lower_layer {
@@ -60,11 +75,13 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&kp TAB    &kp N1  &kp N2  &kp N3            &kp N4     &kp N5        &kp N6     &kp N7    &kp N8       &kp N9     &kp N0  &kp BSPC
-&kp LCTRL  &trans  &trans  &kp LANG_HANGEUL  &kp GLOBE  &kp CAPS      &kp LEFT   &kp DOWN  &kp UP       &kp RIGHT  &trans  &kp DEL
-&kp LSHFT  &trans  &trans  &trans            &trans     &kp INSERT    &kp HOME   &kp END   &kp PAGE_UP  &kp PG_DN  &trans  &kp ESC
-                           &kp LGUI          &trans     &kp ENTER     &kp SPACE  &trans    &kp LALT
+&kp TAB    &kp N1  &kp N2  &kp N3            &kp N4     &kp N5        &kp N6     &kp N7       &kp N8         &kp N9     &kp N0  &kp BSPC
+&kp LCTRL  &trans  &trans  &kp LANG_HANGEUL  &kp GLOBE  &kp CAPS      &kp LEFT   &kp DOWN     &kp UP         &kp RIGHT  &trans  &kp DEL
+&kp LSHFT  &trans  &trans  &trans            &trans     &kp INSERT    &kp HOME   &kp PAGE_UP  &kp PAGE_DOWN  &kp END    &trans  &kp ESC
+                           &kp LGUI          &trans     &kp ENTER     &kp SPACE  &trans       &kp LALT
             >;
+
+            label = "Num_Navi";
         };
 
         raise_layer {
@@ -75,19 +92,21 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&kp TAB           &kp EXCL  &kp AT  &kp HASH  &kp DOLLAR  &kp PERCENT    &kp CARET       &kp AMPERSAND  &kp ASTRK         &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp BSPC
-&kp LEFT_CONTROL  &trans    &trans  &trans    &trans      &trans         &kp MINUS       &kp EQUAL      &kp LEFT_BRACKET  &kp RIGHT_BRACKET     &kp BACKSLASH          &kp GRAVE
-&kp LSHFT         &trans    &trans  &trans    &trans      &trans         &kp UNDERSCORE  &kp PLUS       &kp LEFT_BRACE    &kp RIGHT_BRACE       &kp PIPE               &kp TILDE
-                                    &kp LGUI  &trans      &kp ENTER      &kp SPACE       &trans         &kp LALT
+&kp GRAVE  &kp EXCL  &kp AT           &kp HASH        &kp DOLLAR  &kp PERCENT    &kp CARET  &kp AMPERSAND  &kp ASTRK  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp BSPC
+&trans     &kp BSLH  &kp RBKT         &kp LBKT        &kp EQUAL   &kp MINUS      &trans     &trans         &trans     &trans                &trans                 &trans
+&kp TILDE  &kp PIPE  &kp RIGHT_BRACE  &kp LEFT_BRACE  &kp PLUS    &kp UNDER      &trans     &trans         &trans     &trans                &trans                 &trans
+                                      &trans          &trans      &kp ENTER      &kp SPACE  &trans         &trans
             >;
+
+            label = "Symbol";
         };
 
         sys_layer {
             bindings = <
-&kp F1      &kp F2        &kp F3        &kp F4        &kp F5        &kp F6          &kp F7       &kp F8  &kp F9      &kp F10  &kp F11  &kp F12
-&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &trans       &trans  &trans      &trans   &trans   &trans
-&trans      &trans        &trans        &trans        &trans        &trans          &trans       &trans  &trans      &trans   &trans   &trans
-                                        &sys_reset    &trans        &bootloader     &bootloader  &trans  &sys_reset
+&kp F1      &kp F2        &kp F3        &kp F4        &kp F5        &kp F6          &kp F7       &kp F8  &kp F9  &kp F10  &kp F11  &kp F12
+&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &trans       &trans  &trans  &trans   &trans   &trans
+&trans      &trans        &trans        &trans        &trans        &sys_reset      &sys_reset   &trans  &trans  &trans   &trans   &trans
+                                        &trans        &trans        &bootloader     &bootloader  &trans  &trans
             >;
         };
     };
