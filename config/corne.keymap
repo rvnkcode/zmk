@@ -13,7 +13,7 @@
         compatible = "zmk,combos";
 
         cmb_grave {
-            bindings = <&kp LA(GRAVE)>;
+            bindings = <&kp LC(GRAVE)>;
             key-positions = <13 17>;
             layers = <0>;
         };
