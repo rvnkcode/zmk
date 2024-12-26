@@ -93,8 +93,8 @@
 
             bindings = <
 &kp GRAVE  &kp EXCL  &kp AT           &kp HASH        &kp DOLLAR  &kp PERCENT    &kp CARET  &kp AMPERSAND  &kp ASTRK  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp BSPC
-&trans     &kp BSLH  &kp RBKT         &kp LBKT        &kp EQUAL   &kp MINUS      &trans     &trans         &trans     &trans                &trans                 &trans
-&kp TILDE  &kp PIPE  &kp RIGHT_BRACE  &kp LEFT_BRACE  &kp PLUS    &kp UNDER      &trans     &trans         &trans     &trans                &trans                 &trans
+&trans     &kp BSLH  &kp RBKT         &kp LBKT        &kp MINUS   &kp EQUAL      &trans     &trans         &trans     &trans                &trans                 &trans
+&kp TILDE  &kp PIPE  &kp RIGHT_BRACE  &kp LEFT_BRACE  &kp UNDER   &kp PLUS       &trans     &trans         &trans     &trans                &trans                 &trans
                                       &trans          &trans      &kp ENTER      &kp SPACE  &trans         &trans
             >;
 
