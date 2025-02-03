@@ -14,7 +14,7 @@
 
         cmb_grave {
             bindings = <&kp LC(GRAVE)>;
-            key-positions = <13 17>;
+            key-positions = <25 29>;
             layers = <0>;
         };
 
