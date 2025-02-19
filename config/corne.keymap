@@ -20,7 +20,7 @@
 
         cmb_alt-f4 {
             bindings = <&kp LA(F4)>;
-            key-positions = <1 10>;
+            key-positions = <1 28>;
             layers = <0>;
         };
 
